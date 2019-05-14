@@ -16,6 +16,23 @@
 
                     You are logged in!
 
+                    <br><br>
+                    <?php
+                    print("<b>Popis radova:</b>");
+                    print("<br>");
+                    $tasks = DB::table('tasks')->pluck('naziv_rada');
+                    if(empty($tasks)) {
+                      print("No tasks in your database");
+                    } else {
+                        $size = sizeof($tasks);
+                        for($i=0; $i<$size; $i++){
+                            print($tasks[$i]);
+                            print("<br>");
+                        }
+                    }
+                    ?>
+                    <br><br>
+
                     <div class="links">
                       <a href="/tasks">Add new task</a>
                     </div>
